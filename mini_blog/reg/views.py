@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .forms import SignUpForm
+from .forms import SignUpForm , LoginForm
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -31,7 +31,8 @@ def User_Logout(request):
 
 #Logout
 def User_Login(request):
-    return render(request, 'reg/login.html')
+    form = LoginForm()
+    return render(request, 'reg/login.html', {'form':form})
 
 #Login
 def Login(request):
