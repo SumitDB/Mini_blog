@@ -4,16 +4,14 @@
 
 <div class="col-sm-10">
   <h3 class="text-white my-5 ">Home Page</h3>
+  {% for post in posts %}
   <div class="jumbotron jumbotron-fluid jumbo-color">
     <div class="container">
-      <h1 class="display-4 font-weight-bold">This is Blog Title</h1>
-      <p class="lead ">This is a modified jumbotron that occupies the entire horizontal space of its parent.Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Voluptatem iure earum delectus omnis molestiae tenetur, dolorem
-        quod. Dignissimos dolores asperiores fugit tenetur amet mollitia, praesentium vel, odit tempora id dolorem.
-        Lorem ipsum
-      </p>
+      <h1 class="display-4 font-weight-bold">{{post.title}}</h1>
+      <p class="lead ">{{post.desc}}</p>
     </div>
   </div>
+  {% endfor %}
 
 </div>
 
