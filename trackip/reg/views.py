@@ -1,3 +1,5 @@
+from ensurepip import version
+import imp
 from multiprocessing import AuthenticationError
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import SignUpForm , LoginForm, PostForm
@@ -6,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from reg.models import Post
 from django.contrib.auth.models import Group
+from django.core.cache import cache
 
 # Create your views here.
 #Home
@@ -29,6 +32,7 @@ def Dashboard(request):
         full_name = user.get_full_name()
         gps = user.groups.all()
         ip = request.session.get('ip', 0)
+        
         return render(request, 'reg/dashboard.html', {'posts':posts, 'full_name':full_name,'groups':gps, 'ip':ip})
     else:
         return HttpResponseRedirect('/login/')

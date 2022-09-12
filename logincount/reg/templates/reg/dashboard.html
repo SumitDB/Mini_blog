@@ -9,9 +9,7 @@
 {% for message in messages %}
 <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show" {% endif %}>
     <strong>{{message}}</strong>
-    <button type="button" class="close" data-dismiss="'alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span> 
-    </button>
+    F
 </div>
 {% endfor %}
 {% endif %}
@@ -25,7 +23,9 @@
     {% for group in groups %}
     <p>{{ group.name }}</p>
     {% endfor %}
-    <h4 class="mt-3">your IP:{{ ip }}</h4>
+    <button class="btn btn-danger-mt-3">
+        Login Times <span class="badge badge-dark">{{ct}}</span>
+    </button>
 </div>
 {% endblock side %}
 

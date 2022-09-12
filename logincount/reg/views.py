@@ -6,8 +6,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from reg.models import Post
 from django.contrib.auth.models import Group
+from django.core.cache import cache
 
-# Create your views here.
+#Create your views here.
 #Home
 def Home(request):
     posts = Post.objects.all()
@@ -29,7 +30,8 @@ def Dashboard(request):
         full_name = user.get_full_name()
         gps = user.groups.all()
         ip = request.session.get('ip', 0)
-        return render(request, 'reg/dashboard.html', {'posts':posts, 'full_name':full_name,'groups':gps, 'ip':ip})
+        ct=cache.get('count', version=user.pk)
+        return render(request, 'reg/dashboard.html', {'posts':posts, 'full_name':full_name,'groups':gps, 'ip':ip,'ct':ct})
     else:
         return HttpResponseRedirect('/login/')
         

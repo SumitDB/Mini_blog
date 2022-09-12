@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asis/Kolkata'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -124,7 +124,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     'default':{
-        'BACKEND':'django.core.cache.backends.db.DatabaseChache',
+        'BACKEND':'django.core.cache.backends.db.DatabaseCache',
     'LOCATION':'reg_cache',
 }
 }
